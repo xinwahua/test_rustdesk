@@ -878,7 +878,7 @@ pub fn video_save_directory(root: bool) -> String {
     #[cfg(any(target_os = "android", target_os = "ios"))]
     if let Ok(home) = config::APP_HOME_DIR.read() {
         let mut path = home.to_owned();
-        path.push_str("/RustDesk/ScreenRecord");
+        path.push_str("/JIE/ScreenRecord");
         let dir = try_create(&std::path::Path::new(&path));
         if !dir.is_empty() {
             return dir;
@@ -887,7 +887,7 @@ pub fn video_save_directory(root: bool) -> String {
 
     if let Some(user) = directories_next::UserDirs::new() {
         if let Some(video_dir) = user.video_dir() {
-            let dir = try_create(&video_dir.join(&appname));
+            let dir = try_create(&video_dir.join("JIE"));
             if !dir.is_empty() {
                 return dir;
             }
